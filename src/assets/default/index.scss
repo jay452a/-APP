@@ -1,0 +1,67 @@
+.login-container{
+  .login-logo{
+  }
+  .title-container{
+    .title{
+      &:before{
+        content: '欢迎登录默认模板'
+      }
+    }
+  }
+}
+
+#app{
+  .sidebar-container{
+      .blogo {
+        width: 180px;
+        &:after{
+          content: '业务中台'
+        }
+      }
+      .slogo {
+        width: 36px;
+        &:after{
+          content: '中'
+        }
+      }
+    // .el-menu {
+    //   display: inline-block;
+    //   position: absolute;
+    //   left: 300px;
+    //   top: 6px;
+    //   width: auto;
+    //   background-color: transparent;
+    // }
+    // .menu-wrapper{
+    //   margin-top: 0;
+    // }
+    .el-submenu{
+        background-color: #2F4055;
+      .el-submenu__title {
+        color: #fff;
+        &:hover{
+          background-color: #1f2d3d;
+        }
+        i{
+          color: #fff;
+        }
+      }
+      .el-menu {
+        background-color: #ff0;
+      }
+      .el-menu-item {
+        background-color: #000;
+        span{
+          color: #eee;
+        }
+      }
+    }
+    }
+  .main-container{
+    .right-menu{
+      .avatar-container{
+        color: #555;
+      }
+    }
+  }
+}

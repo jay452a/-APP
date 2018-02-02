@@ -1,0 +1,159 @@
+.login-container{
+  background-image: url('./images/ssologin_bg.0638b01.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  .login-logo{
+    background: url('./images/logo.814459a.png') no-repeat;
+    width: 240px;
+    height: 60px;
+    position: absolute;
+    top: 35px;
+    left: 60px;
+  }
+  .title-container{
+    .title{
+      &:before{
+        content: '欢迎登录智慧会议'
+      }
+    }
+  }
+}
+#app{
+  .sidebar-container{
+    -webkit-transition: width 0.28s;
+    transition: width 0.28s;
+    width: 100%!important;
+    height: 74px;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 1001;
+    border-bottom: 1px solid #fb974e;
+    box-shadow: 0 0 5px #fb974e;
+    background-image: url('./images/headerBg.png');
+    background-position: 50%;
+    background-size: auto 100%;
+
+
+
+    .logo{
+      height: 60px;
+      left: 20px;
+      top: 6px;
+    }
+    .blogo {
+      width: 187px;
+      background: url('./images/logo.main.png') no-repeat center center;
+    }
+    .slogo {
+      width: 187px;
+      background: url('./images/logo.main.png') no-repeat center center;
+    }
+    .el-menu {
+      display: inline-block;
+      position: absolute;
+      left: 300px;
+      top: 6px;
+      width: auto;
+      background-color: transparent;
+    }
+    .menu-wrapper{
+      margin-top: 0;
+    }
+    .el-submenu{
+      float: left;
+      position: relative;
+      .el-submenu__title {
+        height: 60px;
+        line-height: 60px;
+        border-bottom: 2px solid transparent;
+        color: #fff;
+        font-size: 16px;
+        &:hover{
+          background-color: transparent;
+          border-bottom: 2px #fff solid;
+        }
+        i{
+          color: #fff;
+        }
+      }
+      .el-submenu__icon-arrow {
+        position: static;
+        vertical-align: middle;
+        margin-left: 8px;
+        margin-top: -3px;
+      }
+      .el-menu {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        border: none;
+        padding: 5px 0;
+        background-color: #fff;
+        z-index: 100;
+        min-width: 100%;
+        -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+      }
+      .el-menu-item {
+        background-color: #fff;
+        float: none;
+        height: 36px;
+        line-height: 36px;
+        padding: 0 10px;
+        min-width: auto!important;
+        background-color: transparent!important;
+        span{
+          color: #666;
+        }
+      }
+    }
+  }
+  .main-container{
+    margin-left: 0;
+    margin-top: 74px;
+    min-height: calc(100% - 74px);
+    overflow: inherit;
+    .navbar {
+      display: inline-block;
+      float: right;
+      background-color: transparent;
+      border-bottom: none;
+      position: absolute;
+      top: -62px;
+      right: 20px;
+      z-index: 1999;
+      .hamburger-container{
+        display: none;
+      }
+      .app-breadcrumb{
+        display: none;
+      }
+    }
+    .right-menu{
+      .screenfull{
+        display: none;
+      }
+      .international{
+        display: none;
+      }
+      .theme-switch{
+        display: none;
+      }
+      .avatar-container{
+        color: #fff;
+      }
+    }
+  }
+  .hideSidebar .main-container {
+    margin-left: 0;
+  }
+  .hideSidebar .sidebar-container, .hideSidebar .sidebar-container .el-menu {
+    width: inherit!important;
+  }
+  .hideSidebar .el-submenu > .el-submenu__title > span, .hideSidebar .el-submenu > .el-submenu__title .el-submenu__icon-arrow {
+    display: inline-block;
+  }
+}
