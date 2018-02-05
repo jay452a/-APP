@@ -7,6 +7,7 @@ import myOrganize from '@/views/addressBook/myOrganize.vue'
 import myBranch from '@/views/addressBook/myBranch.vue'
 import mobile from '@/views/addressBook/mobileAddressBook.vue'
 import search from '@/views/addressBook/search.vue'
+import detail from '@/views/addressBook/selfDetail.vue'
 const route = [
   { path: '/addressBook',
     component: addressBookMain,
@@ -36,11 +37,16 @@ const route = [
         components: { linkNearly: linkNearly, myOrganize: myOrganize, myBranch: myBranch, mobile: mobile }
       },
       {
-        path: 'search',
+        path: 'search/:id',
         name: 'search',
         components: { search: search }
       }
     ]
+  },
+  {
+    path: '/personDetail/:id',
+    name: 'personDetail',
+    component: detail
   }
 ]
 export default route

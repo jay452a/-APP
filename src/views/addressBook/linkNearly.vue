@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul>
-      <li><span class="pic">文鹏</span>文鹏</li>
+      <a href="#/personDetail/1"><li><span class="pic">文鹏</span>文鹏</li></a>
       <li><span class="pic">黄露</span>黄露</li>
       <li><span class="pic">文杰</span>毛文杰</li>
       <li><span class="pic">渣辉</span>渣渣辉</li>

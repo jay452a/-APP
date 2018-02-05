@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?nabqus');
-  src:  url('fonts/icomoon.eot?nabqus#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?nabqus') format('truetype'),
-    url('fonts/icomoon.woff?nabqus') format('woff'),
-    url('fonts/icomoon.svg?nabqus#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?shnh4f');
+  src:  url('fonts/icomoon.eot?shnh4f#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?shnh4f') format('truetype'),
+  url('fonts/icomoon.woff?shnh4f') format('woff'),
+  url('fonts/icomoon.svg?shnh4f#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="iconAddressBook-"], [class*=" iconAddressBook-"] {
+[class^="iconAddressBook-"], [class*="iconAddressBook-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -95,4 +95,8 @@
 }
 .iconAddressBook-zjlx:before {
   content: "\e919";
+}
+.iconAddress-filter:before {
+  content: "\e91a";
+  color: #707070;
 }

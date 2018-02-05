@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section ref="searchSection">
     <nav class="nav2">
       <span :class="{active: active2==='tab1'}" @click = "tabNav('tab1')">
           <p>联系人</p>
@@ -11,16 +11,23 @@
           <p>标签</p>
       </span>
       <i class="underline" ref="underline"></i>
+      <label v-show="active2 === 'tab3'"
+             @click="isFilter=!isFilter">
+        <img src="~@/assets/addressBook/images/filter.png"
+             class="filter"
+             >
+      </label>
+
     </nav>
-    <mt-tab-container v-model="active2" :swipeable="true" class="content">
+    <mt-tab-container v-model="active2" class="content">
       <mt-tab-container-item id="tab1">
-        <SearchLink></SearchLink>
+        <SearchLink v-if="active2"></SearchLink>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab2">
        <SearchOrganize></SearchOrganize>
       </mt-tab-container-item>
       <mt-tab-container-item id="tab3">
-        <SearchLabel></SearchLabel>
+        <SearchLabel :isFilter="isFilter" @emitIsFilter="emitLabel"></SearchLabel>
       </mt-tab-container-item>
     </mt-tab-container>
   </section>
@@ -32,7 +39,8 @@
   export default{
     data() {
       return {
-        active2: 'tab1'
+        active2: 'tab1',
+        isFilter: false
       }
     },
     methods: {
@@ -47,11 +55,26 @@
       },
       tabNav(tab) {
         this.active2 = tab
+      },
+      showLabel() {
+        this.isFilter = true
+      },
+      emitLabel(val) {
+        console.log(val, 'ek')
+        this.isFilter = val
       }
     },
     watch: {
       active2(val) {
         this.underlineMove(val)
+        this.isFilter = false
+        if (val === 'tab3') {
+          this.$store.dispatch('changeAddressBookSearchShow', false)
+          this.$refs.searchSection.style.paddingTop = 0
+        } else {
+          this.$store.dispatch('changeAddressBookSearchShow', true)
+          this.$refs.searchSection.style.paddingTop = '5px'
+        }
       }
     },
     components: {
@@ -66,6 +89,8 @@
     display: flex;
     background: white;
     padding: 10px 0;
+    position: relative;
+    z-index:11;
     span{
       width: 25%;
       text-align: center;
@@ -121,6 +146,27 @@
       height: 2px;
       background: #0061bf;
       transition: all 0.3s;
+    }
+    label{
+      width: 40px;
+      height: 40px;
+      height:100%;
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      line-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:active{
+        background: #dcdcdc;
+      }
+    }
+    img.filter{
+      width: 15px;
+      height: 15px;
+      display: inline-block;
     }
   }
   .content{

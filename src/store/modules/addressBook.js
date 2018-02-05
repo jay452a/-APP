@@ -5,7 +5,8 @@ const addressBook = {
   state: {
     organizeLevel: 'default',
     isLoadMobileAddressBook: false,
-    addressBookSearchValue: ''
+    addressBookSearchValue: '',
+    addressBookSearchShow: true
   },
   mutations: {
     SET_ORGANIZE_LEVEL(state, data) {
@@ -16,6 +17,9 @@ const addressBook = {
     },
     SET_ADDRESSBOOK_SEARCHVALUE(state, data) {
       state.addressBookSearchValue = data
+    },
+    SET_ADDRESSBOOK_SEARCHSHOW(state, data) {
+      state.addressBookSearchShow = data
     }
   },
   actions: {
@@ -27,6 +31,9 @@ const addressBook = {
     },
     changeAddressBookSearchValue({ commit }, data) {
       commit('SET_ADDRESSBOOK_SEARCHVALUE', data)
+    },
+    changeAddressBookSearchShow({ commit }, data) {
+      commit('SET_ADDRESSBOOK_SEARCHSHOW', data)
     }
   }
 }

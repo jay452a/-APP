@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="searchArea">
+    <div class="searchArea" v-show="getSearchShow">
       <i class="iconAddressBook-search"></i>
       <input placeholder="搜索" type="text" class="search" @focus="toSearch" ref="searchInput" v-model="searchValue"/>
     </div>
@@ -48,7 +48,7 @@
     </div>
     <!--点击搜索显示以下-->
     <div class="container2" v-show="isSearch">
-      <router-view class="view" name="search"></router-view>
+      <router-view name="search"></router-view>
     </div>
   </section>
 </template>
@@ -62,7 +62,10 @@
         searchValue: ''
       }
     },
-    components: {
+    computed: {
+      getSearchShow() {
+        return this.$store.state.addressBook.addressBookSearchShow
+      }
     },
     methods: {
       pathChangeContent(path) {
@@ -88,14 +91,14 @@
         }
       },
       toSearch() {
-        window.location.href = '#/addressBook/search'
+        window.location.href = '#/addressBook/search/default'
       }
     },
     created() {
       var path = window.location.href.split('#')[1]
       path = path.split('?')[0]
       this.pathChangeContent(path)
-      if (path === '/addressBook/search') {
+      if (path.indexOf('/addressBook/search') > -1) {
         this.isSearch = true
       } else {
         this.isSearch = false
@@ -105,6 +108,7 @@
       $route(val) {
         console.log(val.path)
         this.pathChangeContent(val.path)
+        this.$store.dispatch('changeAddressBookSearchShow', true)
         if (val.name === 'search') {
           this.isSearch = true
         } else {
@@ -123,7 +127,7 @@
 </script>
 <style lang="scss" scoped>
   section{
-    padding-top: 5px;
+   // padding-top: 5px;
     background: #f2f2f2;
     height: 100%;
   }
@@ -131,7 +135,7 @@
     position: relative;
     i{
       position: absolute;
-      top:7px;
+      top:9px;
       left:15px;
       font-size: 16px;
       color: #c3c3c3;
@@ -141,7 +145,7 @@
     width: 95%;
     display: block;
     margin: 0 auto;
-    height: 30px;
+    height: 35px;
     border: none;
     outline: none;
     text-indent: 22px;

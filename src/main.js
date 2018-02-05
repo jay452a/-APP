@@ -10,11 +10,11 @@ import 'font-awesome/css/font-awesome.min.css'
 import App from './App'
 import router from './router'
 import store from './store'
-
+import FastClick from 'fastclick'
 // import './mock' // simulation data
 
 import * as filters from './filters' // global filters
-
+FastClick.attach(document.body)
 Vue.use(Mint)
 
 Vue.use(VeeValidate, {
